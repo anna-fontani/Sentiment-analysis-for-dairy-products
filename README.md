@@ -1,33 +1,28 @@
-# Sentiment analysis for dairy products
+# Sentiment analysis of dairy production
 
-Sentiment analysis based on social network opinions extracted for specific keywords. 
+Sentiment analysis in this project is based on social network opinions extracted for specific keywords. 
 
-To explore consumers’ perception of Irish dairy products, we will try to answer following questions: 
-
--	What do consumers in Ireland think of dairy products?
--	Can we define text sentiment with high accuracy?
--	Which dairy products are most discussed in social media? 
+Following tasks were set for this Data Analytics project:
+-	Study what do consumers think of dairy produced in Ireland.
+- Develop a model to evaluate sentiment polarity.
+- Research most discussed products and most common opinions. 
 
 In this code I will use a .csv file with preliminary extracted posts and comments. 
 
-Dataframe was built based on extracted texts for following keywords: dairy, milk, butter, yoghurt, cream, cheese, buttermilk, and ice cream. 
+Dataframe is created based on preliminary extracted posts on specific keywords: dairy, cream, buttermilk, milk, ice cream, butter, yoghurt, and cheese. 
 
-Extracted 30.582 unique comments were stored in a dataframe with text, keyword, and creation time features. 
+Extracted 30k comments were used to build a dataframe containing post text, keyword, and posting time. 
 
-To prepare text for machine learning sentiment analysis, data was processed: meaningless words, punctuation marks, duplicate entries, and stopwords were removed. 
+## Data Pre-processing
 
-Since extracted data did not contain any labels to feed to machine learning algorithms, TextBlob was applied to determine sentiment polarity in range [-1,1] where -1 denotes a highly negative sentiment and 1 denotes a highly positive sentiment (Arora, 2024). Polarity values were then encoded into 0 (negative) and 1 (positive) labels to proceed with machine learning. 
+Meaningless words, punctuation marks, duplicate posts, and stopwords were cleaned. 
 
-Labels ration in data: 
-- Positive: 38.08%
-- Negative: 61.91%
- 
-The dataframe appeared not perfectly balanced, and this type of imbalance can be called marginally unbalanced (Weiss, 2013). It would be practical to fit models on imbalanced data and consider differences in model performance for labels.
+Original data did not contain sentiment labels to feed to our ML model. Hence, it was necessary to either add some labels manually, or use a tool to build labels. 
+In this porject, TextBlob was implemented to define sentiment polarity [-1,1] where -1 is a highly negative sentiment and 1 is a highly positive sentiment (Arora, 2024). 
 
 ## Bag of Words
-Since computers do not perceive text as it is, we need approach to feed it to machine learning algorithms. According to Müller and Guido (2014), bag of words text representation is one of the easiest but still effective approaches to represent text for machine learning.
-
-The grammar and the order of words in a sentence are not given any importance, instead, multiplicity is the main point of concern. The bag of words describes the total occurrence of words within a document (Arora, 2024). In Python, bag of words can be implemented using CountVectorzer tool from sklearn library.
+Müller and Guido (2014) call the bag of words text representation is one of the most common and efficient approaches to represent text for machine learning models.
+The bag of words counts occurrence of words in the text (Arora, 2024). In Python, bag of words can be added using CountVectorzer (sklearn library).
 
 
 # References / Additional Reading
